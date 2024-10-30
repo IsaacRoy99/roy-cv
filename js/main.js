@@ -71,3 +71,20 @@
     });
 })(jQuery);
 
+//EmailJS Code
+sendMessageButton() {
+    emailjs.init('xQt2L_FtwCjPOTRq_'); // EmailJS user ID
+  };
+  
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+  
+    // Send email using EmailJS
+    emailjs.sendForm('service_js4lywq', 'template_0r5754k', this)
+      .then(function() {
+        alert('Message Sent!');
+      }, function(error) {
+        alert('Failed to send message. Please try again later.');
+        console.log('Error:', error);
+      });
+  });
